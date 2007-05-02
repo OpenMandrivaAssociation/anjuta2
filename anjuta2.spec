@@ -6,8 +6,8 @@
 
 Summary:	Integrated development environment for C and C++ (Linux)
 Name:		%{pkgname}2
-Version:	2.0.2
-Release:	%mkrel 2
+Version:	2.1.2
+Release:	%mkrel 1
 License:	GPL
 Group:		Development/Other
 URL:		http://anjuta.sourceforge.net/
@@ -35,7 +35,9 @@ BuildRequires:	libgladeui-devel >= 3.0.0
 BuildRequires:	libvte-devel >= 0.9.0
 BuildRequires:	libautogen-devel
 BuildRequires:	autogen
-BuildRequires:	gnome-build-devel >= 0.1.1
+#BuildRequires:	gnome-build-devel >= 0.1.1
+BuildRequires:	gnome-common
+BuildRequires:	intltool
 BuildRequires:	subversion
 #BuildRequires:	subversion-devel
 BuildRequires:	pcre-devel
@@ -91,8 +93,8 @@ Anjuta 2 devel files
 %{__perl} -pi -e "s| %_name\.| %name.|g" mime/Makefile.am
 %{__perl} -pi -e "s|^GETTEXT_PACKAGE=%_name$|GETTEXT_PACKAGE=%name|" configure.in
 %{__perl} -pi -e 's|update-mime-database .*;|	echo;|' mime/Makefile.am
-%patch0
-%patch1 -p1
+#%patch0
+#%patch1 -p1
 %patch2 -p0
 
 %build
@@ -113,8 +115,8 @@ make
 %install
 rm -rf %{buildroot}
 %makeinstall_std
-cat global-tags/create_global_tags.sh | sed -e s/'PROGDIR=.'/'PROGDIR=\/usr\/bin'/ > %{buildroot}%{_datadir}/%name/create_global_tags.sh
-chmod 755 %{buildroot}%{_datadir}/%{name}/create_global_tags.sh
+cat global-tags/create_global_tags.sh | sed -e s/'PROGDIR=.'/'PROGDIR=\/usr\/bin'/ > %{buildroot}%{_datadir}/anjuta/scripts/create_global_tags.sh
+chmod 755 %{buildroot}%{_datadir}/anjuta/scripts/create_global_tags.sh
 
 # make a link in /usr/share/pixmaps
 pushd %buildroot%_datadir/pixmaps
@@ -147,9 +149,9 @@ desktop-file-install --vendor="" \
 
 # icons
 mkdir -p %{buildroot}%{_iconsdir} %{buildroot}%{_miconsdir}
-install -m 644 -D       pixmaps/applogo.png %{buildroot}%{_liconsdir}/%{name}.png
-convert -geometry 32x32 pixmaps/applogo.png %{buildroot}%{_iconsdir}/%{name}.png
-convert -geometry 16x16 pixmaps/applogo.png %{buildroot}%{_miconsdir}/%{name}.png
+install -m 644 -D       pixmaps/anjuta_logo.png %{buildroot}%{_liconsdir}/%{name}.png
+convert -geometry 32x32 pixmaps/anjuta_logo.png %{buildroot}%{_iconsdir}/%{name}.png
+convert -geometry 16x16 pixmaps/anjuta_logo.png %{buildroot}%{_miconsdir}/%{name}.png
 
 %find_lang %{pkgname} --with-gnome
  
@@ -192,32 +194,32 @@ cd %{_datadir}/anjuta2
 
 %files -f %{pkgname}.lang
 %defattr(-,root,root) 
-%{_sysconfdir}/gconf/schemas/*.schemas
+#%{_sysconfdir}/gconf/schemas/*.schemas
 %{_bindir}/*
-%{_libdir}/%name/*.plugin
-%_libdir/%name/*.so
-%{_datadir}/%name/*
-%{_datadir}/application-registry/anjuta.applications
+%{_libdir}/anjuta/*.plugin
+%_libdir/anjuta/*.so
+%{_datadir}/anjuta/*
 %{_datadir}/applications/%name.desktop
 %{_datadir}/gtk-doc/html/libanjuta/*
 %{_datadir}/icons/gnome/48x48/mimetypes/gnome-mime-application-x-anjuta.png
 %{_datadir}/man/man1/anjuta.1.*
 %{_datadir}/man/man1/anjuta_launcher.1.*
-%{_datadir}/mime-info/anjuta.keys
-%{_datadir}/mime-info/anjuta.mime
-#%{_datadir}/mime/application/x-anjuta.xml
 %{_datadir}/mime/packages/anjuta.xml
 %{_datadir}/pixmaps/%name.png
-%{_datadir}/pixmaps/%name/*
-%{_datadir}/anjuta/class-templates/*
-%{_datadir}/icons/hicolor/48x48/apps/anjuta_icon.png
-%{_datadir}/icons/hicolor/scalable/apps/anjuta_icon.svg
-%{_datadir}/omf/%name/*.omf
+%{_datadir}/pixmaps/anjuta/*
+#%{_datadir}/anjuta/class-templates/*
+%{_datadir}/icons/hicolor/48x48/apps/anjuta.png
+%{_datadir}/icons/hicolor/scalable/apps/anjuta.svg
+%{_datadir}/icons/gnome/scalable/mimetypes/*.svg
+%{_datadir}/omf/anjuta-manual/*.omf
 %{_menudir}/%{name}
 %{_liconsdir}/%{name}.png
 %{_iconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
 %{_libdir}/pkgconfig/libanjuta-1.0.pc
+%{_datadir}/gnome/help/anjuta-manual/
+%{_datadir}/gnome/help/anjuta-faqs/
+/var/lib/scrollkeeper/*
 
 #%files -n %name-devel
 #%{_libdir}/pkgconfig/libanjuta-1.0.pc
@@ -234,11 +236,11 @@ cd %{_datadir}/anjuta2
 %files -n %libname
 %defattr(-,root,root)
 %_libdir/*.so.*
-%_libdir/%name/*.so.*
+%_libdir/anjuta/*.so.*
 
 %files -n %libnamedev
 %defattr(-,root,root)
 %_libdir/*.so
 %_includedir/libanjuta-1.0
-%_libdir/%name/*.*a
+%_libdir/anjuta/*.*a
 
