@@ -7,7 +7,7 @@
 Summary:	Integrated development environment for C and C++ (Linux)
 Name:		%{pkgname}2
 Version:	2.1.2
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPL
 Group:		Development/Other
 URL:		http://anjuta.sourceforge.net/
@@ -195,7 +195,7 @@ cd %{_datadir}/anjuta2
 
 %files -f %{pkgname}.lang
 %defattr(-,root,root) 
-#%{_sysconfdir}/gconf/schemas/*.schemas
+%{_sysconfdir}/gconf/schemas/*.schemas
 %{_bindir}/*
 %{_libdir}/anjuta/*.plugin
 %_libdir/anjuta/*.so
@@ -220,7 +220,7 @@ cd %{_datadir}/anjuta2
 %{_libdir}/pkgconfig/libanjuta-1.0.pc
 %{_datadir}/gnome/help/anjuta-manual/
 %{_datadir}/gnome/help/anjuta-faqs/
-/var/lib/scrollkeeper/*
+%{_localstatedir}/scrollkeeper/*
 
 #%files -n %name-devel
 #%{_libdir}/pkgconfig/libanjuta-1.0.pc
