@@ -195,7 +195,7 @@ cd %{_datadir}/anjuta2
 
 %files -f %{pkgname}.lang
 %defattr(-,root,root) 
-%{_sysconfdir}/gconf/schemas/*.schemas
+#%{_sysconfdir}/gconf/schemas/*.schemas
 %{_bindir}/*
 %{_libdir}/anjuta/*.plugin
 %_libdir/anjuta/*.so
