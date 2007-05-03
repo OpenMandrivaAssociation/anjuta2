@@ -43,6 +43,7 @@ BuildRequires:	subversion
 BuildRequires:	pcre-devel
 BuildRequires:	neon-devel
 BuildRequires:	gtk-doc >= 1.0
+BuildRequires:	gnome-doc-utils >= 0.4.2
 BuildRequires:	apr-devel >= 1.2.2
 BuildRequires:	libgd-devel
 BuildRequires:	libgraphviz-devel >= 2.2.1
