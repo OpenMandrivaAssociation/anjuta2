@@ -7,7 +7,7 @@
 Summary:	Integrated development environment for C and C++ (Linux)
 Name:		%{pkgname}2
 Version:	2.1.3
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPL
 Group:		Development/Other
 URL:		http://anjuta.sourceforge.net/
@@ -51,6 +51,7 @@ BuildRequires:	libgd-devel
 BuildRequires:	libgraphviz-devel >= 2.2.1
 BuildRequires:	scrollkeeper
 BuildRequires:  howl-devel
+BuildRequires:	glade3-devel
 BuildRequires:	ImageMagick
 Obsoletes:	gnome-build
 Provides:	anjuta = %{version} gnome-build
