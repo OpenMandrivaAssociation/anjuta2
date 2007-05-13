@@ -7,7 +7,7 @@
 Summary:	Integrated development environment for C and C++ (Linux)
 Name:		%{pkgname}2
 Version:	2.1.3
-Release:	%mkrel 2
+Release:	%mkrel 1
 License:	GPL
 Group:		Development/Other
 URL:		http://anjuta.sourceforge.net/
@@ -39,8 +39,9 @@ BuildRequires:	gnome-build-devel >= 0.1.4
 BuildRequires:	gtksourceview-devel
 BuildRequires:	gnome-common
 BuildRequires:	intltool
-BuildRequires:	subversion
-#BuildRequires:	subversion-devel
+BuildRequires:	subversion-devel >= 1.0.2
+BuildRequires:	apr-util-devel >= 0.9.4
+BuildRequires:	binutils-devel
 BuildRequires:	pcre-devel
 BuildRequires:	neon-devel
 BuildRequires:	gtk-doc >= 1.0
