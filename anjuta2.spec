@@ -43,7 +43,7 @@ BuildRequires:	subversion-devel >= 1.0.2
 BuildRequires:	apr-util-devel >= 0.9.4
 BuildRequires:	binutils-devel
 BuildRequires:	pcre-devel
-BuildRequires:	neon-devel
+BuildRequires:	neon-devel >= 0.24.5
 BuildRequires:	gtk-doc >= 1.0
 BuildRequires:	gnome-doc-utils >= 0.4.2
 BuildRequires:	apr-devel >= 1.2.2
@@ -239,7 +239,7 @@ cd %{_datadir}/anjuta2
 %files -n %libname
 %defattr(-,root,root)
 %_libdir/*.so.*
-%_libdir/anjuta/*.so.*
+#%_libdir/anjuta/*.so.*
 
 %files -n %libnamedev
 %defattr(-,root,root)
