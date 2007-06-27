@@ -2,7 +2,7 @@
 
 %define major 0
 %define libname %mklibname %{pkgname} %major
-%define libnamedev %mklibname %{pkgname} %major -d
+%define libnamedev %mklibname %{pkgname}  -d
 
 Summary:	Integrated development environment for C and C++ (Linux)
 Name:		%{pkgname}2
@@ -53,7 +53,6 @@ BuildRequires:	scrollkeeper
 BuildRequires:  howl-devel
 BuildRequires:	glade3-devel
 BuildRequires:	ImageMagick
-Obsoletes:	gnome-build
 Provides:	anjuta = %{version} gnome-build
 Conflicts:	anjuta < 2
 BuildRoot:	%{_tmppath}/%{pkgname}-%{version}-buildroot
@@ -85,6 +84,7 @@ Summary: Anjuta 2 devel files
 Group: Development/Other
 Requires: %libname = %version
 Provides: libanjuta-devel
+Obsoletes: %mklibname -d %{pkgname} %{major}
 
 %description -n %{libnamedev}
 Anjuta 2 devel files 
