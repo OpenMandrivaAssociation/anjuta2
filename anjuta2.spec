@@ -240,7 +240,7 @@ cd %{_datadir}/anjuta2
 %files -n %libname
 %defattr(-,root,root)
 %_libdir/*.so.*
-%_libdir/anjuta/*.so.*
+#%_libdir/anjuta/*.so.*
 
 %files -n %libnamedev
 %defattr(-,root,root)
