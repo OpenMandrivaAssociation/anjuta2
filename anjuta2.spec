@@ -6,8 +6,8 @@
 
 Summary:	Integrated development environment for C and C++ (Linux)
 Name:		%{pkgname}2
-Version:	2.1.3
-Release:	%mkrel 3
+Version:	2.2.0
+Release:	%mkrel 1
 License:	GPL
 Group:		Development/Other
 URL:		http://anjuta.sourceforge.net/
