@@ -206,8 +206,8 @@ cd %{_datadir}/anjuta2
 %{_datadir}/applications/%name.desktop
 %{_datadir}/gtk-doc/html/libanjuta/*
 %{_datadir}/icons/gnome/48x48/mimetypes/gnome-mime-application-x-anjuta.png
-%{_datadir}/man/man1/anjuta.1.*
-%{_datadir}/man/man1/anjuta_launcher.1.*
+%{_mandir}/man1/anjuta.1.*
+%{_mandir}/man1/anjuta_launcher.1.*
 %{_datadir}/mime/packages/anjuta.xml
 %{_datadir}/pixmaps/%name.png
 %{_datadir}/pixmaps/anjuta/*
