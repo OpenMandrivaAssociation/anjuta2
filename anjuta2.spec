@@ -6,7 +6,7 @@
 
 Summary:	Integrated development environment for C and C++ (Linux)
 Name:		%{pkgname}2
-Version:	2.2.0
+Version:	2.2.1
 Release:	%mkrel 1
 License:	GPL
 Group:		Development/Other
@@ -55,6 +55,7 @@ BuildRequires:	glade3-devel
 BuildRequires:	ImageMagick
 Provides:	anjuta = %{version} gnome-build
 Conflicts:	anjuta < 2
+Conflicts:	%libnamedev < 2.2.1-1
 BuildRoot:	%{_tmppath}/%{pkgname}-%{version}-buildroot
 
 %description
@@ -84,6 +85,7 @@ Summary: Anjuta 2 devel files
 Group: Development/Other
 Requires: %libname = %version
 Provides: libanjuta-devel
+Conflicts: %name < 2.2.1-1
 Obsoletes: %mklibname -d %{pkgname} %{major}
 
 %description -n %{libnamedev}
@@ -129,25 +131,9 @@ popd
 
 mv $RPM_BUILD_ROOT%{_datadir}/applications/anjuta.desktop $RPM_BUILD_ROOT%{_datadir}/applications/%name.desktop
 
-# menu
-mkdir -p %{buildroot}%{_menudir}
-cat > %{buildroot}%{_menudir}/%{name} <<EOF
-?package(%{name}): \
-command="%{_bindir}/anjuta" \
-title="Anjuta IDE" \
-longtitle="Anjuta Integrated Development Environment for C/C++" \
-needs="x11" \
-icon="%{name}.png" \
-section="More Applications/Development/Development Environments" \
-startup_notify="yes" \
-xdg="true"
-EOF
-
 desktop-file-install --vendor="" \
-  --remove-category="Application" \
-  --add-category="GTK" \
+  --remove-key='Encoding'
   --add-category="IDE" \
-  --add-category="X-MandrivaLinux-MoreApplications-Development-DevelopmentEnvironments" \
   --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/*
 
 
@@ -201,26 +187,21 @@ cd %{_datadir}/anjuta2
 %{_sysconfdir}/gconf/schemas/*.schemas
 %{_bindir}/*
 %{_libdir}/anjuta/*.plugin
-%_libdir/anjuta/*.so
-%{_datadir}/anjuta/*
+%{_libdir}/anjuta/*.so
+%{_datadir}/anjuta
 %{_datadir}/applications/%name.desktop
 %{_datadir}/gtk-doc/html/libanjuta/*
-%{_datadir}/icons/gnome/48x48/mimetypes/gnome-mime-application-x-anjuta.png
+%{_datadir}/icons/gnome/*/mimetypes/*
 %{_mandir}/man1/anjuta.1.*
 %{_mandir}/man1/anjuta_launcher.1.*
 %{_datadir}/mime/packages/anjuta.xml
 %{_datadir}/pixmaps/%name.png
 %{_datadir}/pixmaps/anjuta/*
-#%{_datadir}/anjuta/class-templates/*
-%{_datadir}/icons/hicolor/48x48/apps/anjuta.png
-%{_datadir}/icons/hicolor/scalable/apps/anjuta.svg
-%{_datadir}/icons/gnome/scalable/mimetypes/*.svg
+%{_datadir}/icons/hicolor/*/apps/*
 %{_datadir}/omf/anjuta-manual/*.omf
-%{_menudir}/%{name}
 %{_liconsdir}/%{name}.png
 %{_iconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
-%{_libdir}/pkgconfig/libanjuta-1.0.pc
 %{_datadir}/gnome/help/anjuta-manual/
 %{_datadir}/gnome/help/anjuta-faqs/
 %{_localstatedir}/scrollkeeper/*
@@ -239,12 +220,12 @@ cd %{_datadir}/anjuta2
 
 %files -n %libname
 %defattr(-,root,root)
-%_libdir/*.so.*
+%_libdir/*.so.%{major}*
 #%_libdir/anjuta/*.so.*
 
 %files -n %libnamedev
 %defattr(-,root,root)
 %_libdir/*.so
 %_includedir/libanjuta-1.0
-%_libdir/anjuta/*.*a
-
+%_libdir/anjuta/*.la
+%_libdir/pkgconfig/*.pc
