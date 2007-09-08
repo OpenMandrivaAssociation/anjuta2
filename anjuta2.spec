@@ -35,7 +35,7 @@ BuildRequires:	libgladeui-devel >= 3.0.0
 BuildRequires:	libvte-devel >= 0.9.0
 BuildRequires:	libautogen-devel
 BuildRequires:	autogen
-BuildRequires:	gnome-build-devel >= 0.1.4
+BuildRequires:	gnome-build-devel >= 0.2.0
 BuildRequires:	gtksourceview-devel
 BuildRequires:	gnome-common
 BuildRequires:	intltool
