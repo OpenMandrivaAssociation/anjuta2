@@ -53,7 +53,7 @@ BuildRequires:	scrollkeeper
 BuildRequires:  howl-devel
 BuildRequires:	glade3-devel
 BuildRequires:	ImageMagick
-Provides:	anjuta = %{version} gnome-build
+Provides:	anjuta = %{version}
 Conflicts:	anjuta < 2
 Conflicts:	%libnamedev < 2.2.1-1
 BuildRoot:	%{_tmppath}/%{pkgname}-%{version}-buildroot
