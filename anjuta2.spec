@@ -131,7 +131,7 @@ popd
 mv $RPM_BUILD_ROOT%{_datadir}/applications/anjuta.desktop $RPM_BUILD_ROOT%{_datadir}/applications/%name.desktop
 
 desktop-file-install --vendor="" \
-  --remove-key='Encoding'
+  --remove-key='Encoding' \
   --add-category="IDE" \
   --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/*
 
@@ -185,17 +185,18 @@ cd %{_datadir}/anjuta2
 %defattr(-,root,root) 
 %{_sysconfdir}/gconf/schemas/*.schemas
 %{_bindir}/*
+%dir %{_libdir}/anjuta
 %{_libdir}/anjuta/*.plugin
 %{_libdir}/anjuta/*.so
 %{_datadir}/anjuta
 %{_datadir}/applications/%name.desktop
-%{_datadir}/gtk-doc/html/libanjuta/*
+%{_datadir}/gtk-doc/html/libanjuta*
 %{_datadir}/icons/gnome/*/mimetypes/*
 %{_mandir}/man1/anjuta.1.*
 %{_mandir}/man1/anjuta_launcher.1.*
 %{_datadir}/mime/packages/anjuta.xml
 %{_datadir}/pixmaps/%name.png
-%{_datadir}/pixmaps/anjuta/*
+%{_datadir}/pixmaps/anjuta
 %{_datadir}/icons/hicolor/*/apps/*
 %{_datadir}/omf/anjuta-manual/*.omf
 %{_liconsdir}/%{name}.png
