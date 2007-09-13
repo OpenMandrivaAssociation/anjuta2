@@ -31,9 +31,8 @@ BuildRequires:	pango-devel >= 1.8
 BuildRequires:	libgdl-devel >= 0.5
 BuildRequires:	libxslt-devel
 BuildRequires:	devhelp-devel >= 0.9
-BuildRequires:	libgladeui-devel >= 3.0.0
-BuildRequires:	libvte-devel >= 0.9.0
-BuildRequires:	libautogen-devel
+BuildRequires:	vte-devel >= 0.9.0
+BuildRequires:	autogen-devel
 BuildRequires:	autogen
 BuildRequires:	gnome-build-devel >= 0.2.0
 BuildRequires:	gtksourceview-devel
@@ -43,12 +42,12 @@ BuildRequires:	subversion-devel >= 1.0.2
 BuildRequires:	apr-util-devel >= 0.9.4
 BuildRequires:	binutils-devel
 BuildRequires:	pcre-devel
-BuildRequires:	neon-devel >= 0.24.5
+BuildRequires:	neon0.27-devel
 BuildRequires:	gtk-doc >= 1.0
 BuildRequires:	gnome-doc-utils >= 0.4.2
 BuildRequires:	apr-devel >= 1.2.2
-BuildRequires:	libgd-devel
-BuildRequires:	libgraphviz-devel >= 2.2.1
+BuildRequires:	gd-devel
+BuildRequires:	graphviz-devel >= 2.2.1
 BuildRequires:	scrollkeeper
 BuildRequires:  howl-devel
 BuildRequires:	glade3-devel
