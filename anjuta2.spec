@@ -15,8 +15,6 @@ Source:		http://prdownloads.sourceforge.net/anjuta/%{pkgname}-%{version}.tar.bz2
 Patch0:		anjuta-2.0.0-alt-packagename.patch
 Patch1: 	anjuta-2.0.1-link.patch
 Patch2: 	anjuta-2.0.2-fix-compile-with-nls.patch
-Requires(post): scrollkeeper
-Requires(postun): scrollkeeper
 BuildRequires:	perl-XML-Parser
 BuildRequires:	libgladeui-devel >= 3.0.0
 BuildRequires:	gtk+2-devel >= 2.4.0
@@ -163,7 +161,6 @@ rm -rf %{buildroot}
 cd %{_datadir}/anjuta2
 ./create_global_tags.sh
 %update_menus
-%update_scrollkeeper
 %post_install_gconf_schemas %{schemas}
 %update_icon_cache hicolor
 %update_mime_database
@@ -175,7 +172,6 @@ cd %{_datadir}/anjuta2
 
 %postun
 %clean_menus
-%clean_scrollkeeper
 %clean_icon_cache hicolor
 %clean_mime_database
 
@@ -204,7 +200,6 @@ cd %{_datadir}/anjuta2
 %{_miconsdir}/%{name}.png
 %{_datadir}/gnome/help/anjuta-manual/
 %{_datadir}/gnome/help/anjuta-faqs/
-%{_localstatedir}/scrollkeeper/*
 
 #%files -n %name-devel
 #%{_libdir}/pkgconfig/libanjuta-1.0.pc
