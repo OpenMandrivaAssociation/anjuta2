@@ -7,7 +7,7 @@
 Summary:	Integrated development environment for C and C++ (Linux)
 Name:		%{pkgname}2
 Version:	2.2.1
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	GPL
 Group:		Development/Other
 URL:		http://anjuta.sourceforge.net/
@@ -90,7 +90,6 @@ Anjuta 2 devel files
 %setup -q -n %{pkgname}-%{version}
 %{__perl} -pi -e "s|\<%_name\>|%name|g" anjuta.desktop.in.in
 %{__perl} -pi -e "s|%_name/|%name/|g" global-tags/Makefile.am plugins/class-gen/Makefile.am
-#mv %name. mime/anjuta*
 %{__perl} -pi -e "s| %_name\.| %name.|g" mime/Makefile.am
 %{__perl} -pi -e "s|^GETTEXT_PACKAGE=%_name$|GETTEXT_PACKAGE=%name|" configure.in
 %{__perl} -pi -e 's|update-mime-database .*;|	echo;|' mime/Makefile.am
