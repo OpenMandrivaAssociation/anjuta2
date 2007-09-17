@@ -7,7 +7,7 @@
 Summary:	Integrated development environment for C and C++ (Linux)
 Name:		%{pkgname}2
 Version:	2.2.1
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPL
 Group:		Development/Other
 URL:		http://anjuta.sourceforge.net/
@@ -121,11 +121,6 @@ rm -rf %{buildroot}
 cat global-tags/create_global_tags.sh | sed -e s/'PROGDIR=.'/'PROGDIR=\/usr\/bin'/ > %{buildroot}%{_datadir}/anjuta/scripts/create_global_tags.sh
 chmod 755 %{buildroot}%{_datadir}/anjuta/scripts/create_global_tags.sh
 
-# make a link in /usr/share/pixmaps
-pushd %buildroot%_datadir/pixmaps
-%__ln_s -f %name/anjuta_icon.png %name.png
-popd
-
 mv $RPM_BUILD_ROOT%{_datadir}/applications/anjuta.desktop $RPM_BUILD_ROOT%{_datadir}/applications/%name.desktop
 
 desktop-file-install --vendor="" \
@@ -133,12 +128,11 @@ desktop-file-install --vendor="" \
   --add-category="IDE" \
   --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/*
 
-
 # icons
 mkdir -p %{buildroot}%{_iconsdir} %{buildroot}%{_miconsdir}
-install -m 644 -D       pixmaps/anjuta_logo.png %{buildroot}%{_liconsdir}/%{name}.png
-convert -geometry 32x32 pixmaps/anjuta_logo.png %{buildroot}%{_iconsdir}/%{name}.png
-convert -geometry 16x16 pixmaps/anjuta_logo.png %{buildroot}%{_miconsdir}/%{name}.png
+install -m 644 -D       pixmaps/anjuta_logo.png %{buildroot}%{_liconsdir}/%{pkgname}.png
+convert -geometry 32x32 pixmaps/anjuta_logo.png %{buildroot}%{_iconsdir}/%{pkgname}.png
+convert -geometry 16x16 pixmaps/anjuta_logo.png %{buildroot}%{_miconsdir}/%{pkgname}.png
 
 %find_lang %{pkgname} --with-gnome
  
@@ -191,32 +185,18 @@ cd %{_datadir}/anjuta2
 %{_mandir}/man1/anjuta.1.*
 %{_mandir}/man1/anjuta_launcher.1.*
 %{_datadir}/mime/packages/anjuta.xml
-%{_datadir}/pixmaps/%name.png
 %{_datadir}/pixmaps/anjuta
 %{_datadir}/icons/hicolor/*/apps/*
 %{_datadir}/omf/anjuta-manual/*.omf
-%{_liconsdir}/%{name}.png
-%{_iconsdir}/%{name}.png
-%{_miconsdir}/%{name}.png
+%{_liconsdir}/%{pkgname}.png
+%{_iconsdir}/%{pkgname}.png
+%{_miconsdir}/%{pkgname}.png
 %{_datadir}/gnome/help/anjuta-manual/
 %{_datadir}/gnome/help/anjuta-faqs/
-
-#%files -n %name-devel
-#%{_libdir}/pkgconfig/libanjuta-1.0.pc
-#%{_datadir}/%name/indent_test.*
-#%{_datadir}/%name/project/gnome/src/
-#%{_datadir}/%name/project/terminal/src/
-#%{_datadir}/%name//usr/share/anjuta2/project/xlib/src/
-#%{_datadir}/%name//usr/share/anjuta2/project/gtk/src/
-#%{_datadir}/%name//usr/share/anjuta2/project/xlib-dock/src/
-#%{_datadir}/%name//usr/share/anjuta2/project/anjuta-plugin/src/plugin.c
-#%{_datadir}/%name//usr/share/anjuta2/project/gnome/src/
-#%{_datadir}/%name//usr/share/anjuta2/project/mkfile/src/main.c
 
 %files -n %libname
 %defattr(-,root,root)
 %_libdir/*.so.%{major}*
-#%_libdir/anjuta/*.so.*
 
 %files -n %libnamedev
 %defattr(-,root,root)
