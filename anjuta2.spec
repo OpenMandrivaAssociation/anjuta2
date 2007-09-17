@@ -56,19 +56,17 @@ Conflicts:	%libnamedev < 2.2.1-1
 BuildRoot:	%{_tmppath}/%{pkgname}-%{version}-buildroot
 
 %description
-Anjuta is a versatile IDE for C and C++, written for GTK/GNOME. Features
-include project management, application wizards, an onboard interactive
-debugger, and a powerful source editor with browsing and syntax
-highlighting.
+Anjuta DevStudio is a versatile Integrated Development Environment (IDE)
+on GNOME Desktop Environment and features a number of advanced
+programming facilities. These include project management, application and
+class wizards, an on-board interactive debugger, powerful source editor,
+syntax highlighting, intellisense autocompletions, symbol navigation,
+version controls, integrated GUI designing and other tools.
 
-This version of anjuta is the GNOME 2 port of anjuta 1.0, which
-was for GNOME 1.x originally. The one written from scratch and
-for GNOME 2 from the start has been renamed "Scaffold".
-
-This is an alpha & unstable release and may not be suitable for production use.
-However, we encourage to use it and help us with bug reports.
-Both stable and development release can be used simultaneously,
-but they should be installed in different install prefix (important).
+Anjuta 2.x is the next generation Anjuta development studio with extensible
+plugin architecture. The new architecture allows writing independent
+plugins that could interact with existing plugins. Most of the older
+features have been already ported to the new architecture and are working.
 
 %package -n %{libname}
 Summary: Anjuta 2 libraries
