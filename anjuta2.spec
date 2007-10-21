@@ -149,7 +149,7 @@ rm -rf %{buildroot}
 %define schemas anjuta-valgrind
 
 %post
-cd %{_datadir}/anjuta2
+cd %{_datadir}/anjuta/scripts
 ./create_global_tags.sh
 %update_menus
 %post_install_gconf_schemas %{schemas}
