@@ -6,8 +6,8 @@
 
 Summary:	Integrated development environment for C and C++ (Linux)
 Name:		%{pkgname}2
-Version:	2.2.1
-Release:	%mkrel 3
+Version:	2.2.2
+Release:	%mkrel 1
 License:	GPL
 Group:		Development/Other
 URL:		http://anjuta.sourceforge.net/
@@ -84,7 +84,7 @@ Conflicts: %name < 2.2.1-1
 Obsoletes: %mklibname -d %{pkgname} %{major}
 
 %description -n %{libnamedev}
-Anjuta 2 devel files 
+Anjuta 2 devel files
 
 %prep
 %setup -q -n %{pkgname}-%{version}
@@ -109,7 +109,7 @@ NOCONFIGURE=1 ./autogen.sh
     --enable-plugin-class-inheritance \
     --enable-final \
     --enable-optimize \
-    --enable-gtk-doc 
+    --enable-gtk-doc
 make
 
 %install
@@ -132,7 +132,7 @@ convert -geometry 32x32 pixmaps/anjuta_logo.png %{buildroot}%{_iconsdir}/%{pkgna
 convert -geometry 16x16 pixmaps/anjuta_logo.png %{buildroot}%{_miconsdir}/%{pkgname}.png
 
 %find_lang %{pkgname} --with-gnome
- 
+
 # remove unneeded and conflictive files
 rm -f %{buildroot}%{_libdir}/libanjuta*.la \
       %{buildroot}%{_libdir}/libanjuta*.a \
@@ -169,7 +169,7 @@ cd %{_datadir}/anjuta/scripts
 %postun -n %libname -p /sbin/ldconfig
 
 %files -f %{pkgname}.lang
-%defattr(-,root,root) 
+%defattr(-,root,root)
 %{_sysconfdir}/gconf/schemas/*.schemas
 %{_bindir}/*
 %dir %{_libdir}/anjuta
