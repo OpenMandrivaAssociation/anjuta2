@@ -6,7 +6,7 @@
 
 Summary:	Integrated development environment for C and C++ (Linux)
 Name:		%{pkgname}2
-Version:	2.2.2
+Version:	2.3.0
 Release:	%mkrel 1
 License:	GPL
 Group:		Development/Other
@@ -175,6 +175,7 @@ cd %{_datadir}/anjuta/scripts
 %dir %{_libdir}/anjuta
 %{_libdir}/anjuta/*.plugin
 %{_libdir}/anjuta/*.so
+%{_libdir}/anjuta/*.so.0*
 %{_datadir}/anjuta
 %{_datadir}/applications/%name.desktop
 %{_datadir}/gtk-doc/html/libanjuta*
