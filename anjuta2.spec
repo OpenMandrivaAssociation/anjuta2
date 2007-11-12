@@ -40,7 +40,6 @@ BuildRequires:	subversion-devel >= 1.0.2
 BuildRequires:	apr-util-devel >= 0.9.4
 BuildRequires:	binutils-devel
 BuildRequires:	pcre-devel
-BuildRequires:	neon0.27-devel
 BuildRequires:	gtk-doc >= 1.0
 BuildRequires:	gnome-doc-utils >= 0.4.2
 BuildRequires:	apr-devel >= 1.2.2
