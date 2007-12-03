@@ -7,7 +7,7 @@
 Summary:	Integrated development environment for C and C++ (Linux)
 Name:		%{pkgname}2
 Version:	2.3.1
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2+
 Group:		Development/Other
 URL:		http://anjuta.sourceforge.net/
@@ -51,7 +51,7 @@ BuildRequires:	glade3-devel
 BuildRequires:	ImageMagick
 Provides:	anjuta = %{version}
 Conflicts:	anjuta < 2
-Conflicts:	%libnamedev < 2.2.1-1
+Conflicts:	%libnamedev < 2.3.1-2
 BuildRoot:	%{_tmppath}/%{pkgname}-%{version}-buildroot
 
 %description
@@ -79,7 +79,7 @@ Summary: Anjuta 2 devel files
 Group: Development/Other
 Requires: %libname = %version
 Provides: libanjuta-devel
-Conflicts: %name < 2.2.1-1
+Conflicts: %name < 2.3.1-2
 Obsoletes: %mklibname -d %{pkgname} %{major}
 
 %description -n %{libnamedev}
@@ -171,10 +171,7 @@ cd %{_datadir}/anjuta/scripts
 %defattr(-,root,root)
 %{_sysconfdir}/gconf/schemas/*.schemas
 %{_bindir}/*
-%dir %{_libdir}/anjuta
-%{_libdir}/anjuta/*.plugin
-%{_libdir}/anjuta/*.so
-%{_libdir}/anjuta/*.so.0*
+%{_libdir}/anjuta
 %{_datadir}/anjuta
 %{_datadir}/applications/%name.desktop
 %{_datadir}/gtk-doc/html/libanjuta*
@@ -199,5 +196,4 @@ cd %{_datadir}/anjuta/scripts
 %defattr(-,root,root)
 %_libdir/*.so
 %_includedir/libanjuta-1.0
-%_libdir/anjuta/*.la
 %_libdir/pkgconfig/*.pc
