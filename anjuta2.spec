@@ -171,8 +171,10 @@ cd %{_datadir}/anjuta/scripts
 %defattr(-,root,root)
 %{_sysconfdir}/gconf/schemas/*.schemas
 %{_bindir}/*
+%{_libdir}/glade3/modules/*
 %{_libdir}/anjuta
 %{_datadir}/anjuta
+%{_datadir}/glade3/catalogs/*.xml
 %{_datadir}/applications/%name.desktop
 %{_datadir}/gtk-doc/html/libanjuta*
 %{_datadir}/icons/gnome/*/mimetypes/*
@@ -187,6 +189,7 @@ cd %{_datadir}/anjuta/scripts
 %{_miconsdir}/%{pkgname}.png
 %{_datadir}/gnome/help/anjuta-manual/
 %{_datadir}/gnome/help/anjuta-faqs/
+
 
 %files -n %libname
 %defattr(-,root,root)
