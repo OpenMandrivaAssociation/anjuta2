@@ -52,7 +52,6 @@ BuildRequires:	ImageMagick
 Provides:	anjuta = %{version}
 Conflicts:	anjuta < 2
 Conflicts:	%libnamedev < 2.3.1-2
-BuildRoot:	%{_tmppath}/%{pkgname}-%{version}-buildroot
 
 %description
 Anjuta DevStudio is a versatile Integrated Development Environment (IDE)
