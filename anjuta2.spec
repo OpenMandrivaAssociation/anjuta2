@@ -104,7 +104,7 @@ Anjuta 2 devel files
 NOCONFIGURE=1 ./autogen.sh
 %configure2_5x \
     --disable-static \
-    --enaable-plugin-glade \
+    --enable-plugin-glade \
     --enable-plugin-valgrind \
     --enable-plugin-scintilla \
     --enable-plugin-sourceview \
