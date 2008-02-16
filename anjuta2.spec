@@ -6,7 +6,7 @@
 
 Summary:	Integrated development environment for C and C++ (Linux)
 Name:		%{pkgname}2
-Version:	2.3.3
+Version:	2.3.4
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		Development/Other
@@ -112,7 +112,7 @@ NOCONFIGURE=1 ./autogen.sh
     --enable-final \
     --enable-optimize \
     --enable-gtk-doc
-make
+%make
 
 %install
 rm -rf %{buildroot}
