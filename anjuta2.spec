@@ -6,7 +6,7 @@
 
 Summary:	Integrated development environment for C and C++ (Linux)
 Name:		%{pkgname}2
-Version:	2.4.0
+Version:	2.4.1
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		Development/Other
