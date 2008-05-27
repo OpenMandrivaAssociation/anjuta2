@@ -4,6 +4,8 @@
 %define libname %mklibname %{pkgname} %major
 %define libnamedev %mklibname %{pkgname}  -d
 
+%define _disable_ld_no_undefined 1
+
 Summary:	Integrated development environment for C and C++ (Linux)
 Name:		%{pkgname}2
 Version:	2.4.2
