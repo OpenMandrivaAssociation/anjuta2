@@ -4,16 +4,16 @@
 %define libname %mklibname %{pkgname} %major
 %define libnamedev %mklibname %{pkgname}  -d
 
-%define _disable_ld_no_undefined 1
-
 Summary:	Integrated development environment for C and C++ (Linux)
 Name:		%{pkgname}2
 Version:	2.4.2
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2+
 Group:		Development/Other
 URL:		http://anjuta.sourceforge.net/
-Source:		http://prdownloads.sourceforge.net/anjuta/%{pkgname}-%{version}.tar.bz2
+Source0:	http://prdownloads.sourceforge.net/anjuta/%{pkgname}-%{version}.tar.bz2
+# (fc) 2.4.2-2mdv fix build regarding underlinking
+Patch0:		anjuta-2.4.2-underlinking.patch
 BuildRequires:	perl-XML-Parser
 BuildRequires:	libgladeui-devel >= 3.0.0
 BuildRequires:	gtk+2-devel >= 2.4.0
@@ -89,6 +89,10 @@ Anjuta 2 devel files
 
 %prep
 %setup -q -n %{pkgname}-%{version}
+%patch0 -p1 -b .underlinking
+
+#needed by patch0
+autoreconf
 %{__perl} -pi -e "s|\<%_name\>|%name|g" anjuta.desktop.in.in
 %{__perl} -pi -e "s|%_name/|%name/|g" global-tags/Makefile.am plugins/class-gen/Makefile.am
 %{__perl} -pi -e "s| %_name\.| %name.|g" mime/Makefile.am
