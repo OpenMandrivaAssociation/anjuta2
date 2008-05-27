@@ -14,6 +14,9 @@ URL:		http://anjuta.sourceforge.net/
 Source0:	http://prdownloads.sourceforge.net/anjuta/%{pkgname}-%{version}.tar.bz2
 # (fc) 2.4.2-2mdv fix build regarding underlinking
 Patch0:		anjuta-2.4.2-underlinking.patch
+# (fc) 2.4.2-2mdv link libegg with math library
+Patch1:		anjuta-2.4.2-math.patch
+
 BuildRequires:	perl-XML-Parser
 BuildRequires:	libgladeui-devel >= 3.0.0
 BuildRequires:	gtk+2-devel >= 2.4.0
@@ -90,9 +93,8 @@ Anjuta 2 devel files
 %prep
 %setup -q -n %{pkgname}-%{version}
 %patch0 -p1 -b .underlinking
+%patch1 -p1 -b .math
 
-#needed by patch0
-autoreconf
 %{__perl} -pi -e "s|\<%_name\>|%name|g" anjuta.desktop.in.in
 %{__perl} -pi -e "s|%_name/|%name/|g" global-tags/Makefile.am plugins/class-gen/Makefile.am
 %{__perl} -pi -e "s| %_name\.| %name.|g" mime/Makefile.am
