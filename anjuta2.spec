@@ -158,7 +158,9 @@ rm -rf %{buildroot}
 %update_icon_cache hicolor
 %update_mime_database
 
+%if %mdkversion < 200900
 %post -n %libname -p /sbin/ldconfig
+%endif
 
 %preun
 %preun_uninstall_gconf_schemas %{schemas}
@@ -168,7 +170,9 @@ rm -rf %{buildroot}
 %clean_icon_cache hicolor
 %clean_mime_database
 
+%if %mdkversion < 200900
 %postun -n %libname -p /sbin/ldconfig
+%endif
 
 %files -f %{pkgname}.lang
 %defattr(-,root,root)
