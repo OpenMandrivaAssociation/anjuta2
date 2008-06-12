@@ -152,11 +152,13 @@ rm -rf %{buildroot}
 
 %define schemas anjuta-valgrind
 
+%if %mdkversion < 200900
 %post
 %update_menus
 %post_install_gconf_schemas %{schemas}
 %update_icon_cache hicolor
 %update_mime_database
+%endif
 
 %if %mdkversion < 200900
 %post -n %libname -p /sbin/ldconfig
@@ -165,10 +167,12 @@ rm -rf %{buildroot}
 %preun
 %preun_uninstall_gconf_schemas %{schemas}
 
+%if %mdkversion < 200900
 %postun
 %clean_menus
 %clean_icon_cache hicolor
 %clean_mime_database
+%endif
 
 %if %mdkversion < 200900
 %postun -n %libname -p /sbin/ldconfig
