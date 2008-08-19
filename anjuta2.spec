@@ -103,11 +103,7 @@ NOCONFIGURE=1 ./autogen.sh
     --enable-plugin-glade \
     --enable-plugin-valgrind \
     --enable-plugin-scintilla \
-    --enable-plugin-sourceview \
-    --enable-plugin-class-inheritance \
-    --enable-final \
-    --enable-optimize \
-    --enable-gtk-doc
+    --enable-plugin-sourceview
 %make
 
 %install
