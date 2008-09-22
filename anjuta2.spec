@@ -7,7 +7,7 @@
 Summary:	Integrated development environment for C and C++ (Linux)
 Name:		%{pkgname}2
 Version:	2.23.91
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2+
 Group:		Development/Other
 URL:		http://anjuta.sourceforge.net/
@@ -51,7 +51,7 @@ Requires:	autogen
 Suggests:	libglademm-devel
 Suggests:	glade3
 Provides:	anjuta = %{version}
-Conflicts:	anjuta < 2
+Obsoletes:	anjuta < 2
 Conflicts:	%libnamedev < 2.3.1-2
 BuildRoot:	%{_tmppath}/%{pkgname}-%{version}-buildroot
 
