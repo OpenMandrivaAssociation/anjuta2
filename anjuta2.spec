@@ -11,8 +11,7 @@ Release:	%mkrel 2
 License:	GPLv2+
 Group:		Development/Other
 URL:		http://anjuta.sourceforge.net/
-Source0:	http://prdownloads.sourceforge.net/anjuta/%{pkgname}-%{version}.tar.bz2
-
+Source0:	http://download.gnome.org/sources/anjuta/2.23/%{pkgname}-%{version}.tar.bz2
 BuildRequires:	perl-XML-Parser
 BuildRequires:	libgladeui-devel >= 3.0.0
 BuildRequires:	gtk+2-devel >= 2.4.0
@@ -89,14 +88,7 @@ Anjuta 2 devel files
 %prep
 %setup -q -n %{pkgname}-%{version}
 
-%{__perl} -pi -e "s|\<%_name\>|%name|g" anjuta.desktop.in.in
-%{__perl} -pi -e "s|%_name/|%name/|g" global-tags/Makefile.am plugins/class-gen/Makefile.am
-%{__perl} -pi -e "s| %_name\.| %name.|g" mime/Makefile.am
-%{__perl} -pi -e "s|^GETTEXT_PACKAGE=%_name$|GETTEXT_PACKAGE=%name|" configure.in
-%{__perl} -pi -e 's|update-mime-database .*;|	echo;|' mime/Makefile.am
-
 %build
-%__rm -f missing
 NOCONFIGURE=1 ./autogen.sh
 %configure2_5x \
     --disable-static \
@@ -111,8 +103,6 @@ rm -rf %{buildroot}
 %makeinstall_std
 cat global-tags/create_global_tags.sh | sed -e s/'PROGDIR=.'/'PROGDIR=\/usr\/bin'/ > %{buildroot}%{_datadir}/anjuta/scripts/create_global_tags.sh
 chmod 755 %{buildroot}%{_datadir}/anjuta/scripts/create_global_tags.sh
-
-mv $RPM_BUILD_ROOT%{_datadir}/applications/anjuta.desktop $RPM_BUILD_ROOT%{_datadir}/applications/%name.desktop
 
 desktop-file-install --vendor="" \
   --remove-key='Encoding' \
@@ -176,7 +166,7 @@ rm -rf %{buildroot}
 %{_libdir}/anjuta
 %{_datadir}/anjuta
 %{_datadir}/glade3/catalogs/*.xml
-%{_datadir}/applications/%name.desktop
+%{_datadir}/applications/*.desktop
 %{_datadir}/gtk-doc/html/libanjuta*
 %{_datadir}/icons/gnome/*/mimetypes/*
 %{_mandir}/man1/anjuta.1.*
