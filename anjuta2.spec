@@ -130,10 +130,7 @@ rm -rf %{buildroot}/%{_docdir}
 %clean
 rm -rf %{buildroot}
 
-%define schemas anjuta-build-basic-autotools-plugin anjuta-cvs-plugin anjuta-document-manager \
-	anjuta-editor-scintilla anjuta-editor-sourceview anjuta-language-cpp-java \
-	anjuta-message-manager-plugin anjuta-symbol-browser-plugin \
-	anjuta-terminal-plugin anjuta-valgrind anjuta 
+%define schemas anjuta-build-basic-autotools-plugin anjuta-cvs-plugin anjuta-document-manager anjuta-editor-scintilla anjuta-editor-sourceview anjuta-language-cpp-java anjuta-message-manager-plugin anjuta-symbol-browser-plugin anjuta-terminal-plugin anjuta-valgrind anjuta
 
 %if %mdkversion < 200900
 %post
