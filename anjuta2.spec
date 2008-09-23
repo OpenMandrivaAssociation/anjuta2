@@ -6,13 +6,12 @@
 
 Summary:	Integrated development environment for C and C++ (Linux)
 Name:		%{pkgname}2
-Version:	2.24.0
+Version:	2.24.0.1
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		Development/Other
 URL:		http://anjuta.sourceforge.net/
 Source0:	http://download.gnome.org/sources/anjuta/2.23/%{pkgname}-%{version}.tar.bz2
-BuildRequires:	perl-XML-Parser
 BuildRequires:	libgladeui-devel >= 3.0.0
 BuildRequires:	gtk+2-devel >= 2.4.0
 BuildRequires:	libORBit2-devel >= 2.6
