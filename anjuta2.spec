@@ -44,7 +44,7 @@ BuildRequires:	graphviz-devel >= 2.2.1
 BuildRequires:	scrollkeeper
 BuildRequires:  howl-devel
 BuildRequires:	glade3-devel
-BuildRequires:	ImageMagick
+BuildRequires:	imagemagick
 Requires:	autogen
 Suggests:	libglademm-devel
 Suggests:	glade3
