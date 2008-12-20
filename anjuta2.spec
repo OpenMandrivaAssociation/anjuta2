@@ -7,11 +7,12 @@
 Summary:	Integrated development environment for C and C++ (Linux)
 Name:		%{pkgname}2
 Version:	2.24.2
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2+
 Group:		Development/Other
 URL:		http://anjuta.sourceforge.net/
 Source0:	http://download.gnome.org/sources/anjuta/2.24/%{pkgname}-%{version}.tar.bz2
+Patch: anjuta-2.24.2-format-strings.patch
 BuildRequires:	libgladeui-devel >= 3.0.0
 BuildRequires:	gtk+2-devel >= 2.4.0
 BuildRequires:	libORBit2-devel >= 2.6
@@ -24,7 +25,8 @@ BuildRequires:	libxml2-devel >= 2.4.23
 BuildRequires:	pango-devel >= 1.8
 BuildRequires:	libgdl-devel >= 0.5
 BuildRequires:	libxslt-devel
-BuildRequires:	devhelp-devel >= 0.9
+#gw anjuta 2.24.2 doesn't build with devhelp 0.22
+#BuildRequires:	devhelp-devel >= 0.9
 BuildRequires:	vte-devel >= 0.9.0
 BuildRequires:	autogen-devel
 BuildRequires:	autogen
@@ -86,6 +88,7 @@ Anjuta 2 devel files
 
 %prep
 %setup -q -n %{pkgname}-%{version}
+%patch -p1
 
 %build
 NOCONFIGURE=1 ./autogen.sh
@@ -94,7 +97,8 @@ NOCONFIGURE=1 ./autogen.sh
     --enable-plugin-glade \
     --enable-plugin-valgrind \
     --enable-plugin-scintilla \
-    --enable-plugin-sourceview
+    --enable-plugin-sourceview \
+    --disable-plugin-devhelp
 %make
 
 %install
