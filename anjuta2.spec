@@ -30,7 +30,6 @@ BuildRequires:	devhelp-devel >= 0.22
 BuildRequires:	vte-devel >= 0.9.0
 BuildRequires:	autogen-devel
 BuildRequires:	autogen
-BuildRequires:	gnome-build-devel >= 0.3.0
 BuildRequires:	gtksourceview-devel
 BuildRequires:	gnome-common
 BuildRequires:	intltool
