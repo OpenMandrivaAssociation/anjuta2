@@ -6,13 +6,14 @@
 
 Summary:	Integrated development environment for C and C++ (Linux)
 Name:		%{pkgname}2
-Version:	2.24.2
-Release:	%mkrel 3
+Version:	2.25.4
+Release:	%mkrel 1
 License:	GPLv2+
 Group:		Development/Other
 URL:		http://anjuta.sourceforge.net/
-Source0:	http://download.gnome.org/sources/anjuta/2.24/%{pkgname}-%{version}.tar.bz2
-Patch: anjuta-2.24.2-format-strings.patch
+Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/anjuta/%{pkgname}-%{version}.tar.bz2
+Patch: anjuta-2.25.4-format-strings.patch
+Patch1: anjuta-2.25.4-fix-linking.patch
 BuildRequires:	libgladeui-devel >= 3.0.0
 BuildRequires:	gtk+2-devel >= 2.4.0
 BuildRequires:	libORBit2-devel >= 2.6
@@ -25,8 +26,7 @@ BuildRequires:	libxml2-devel >= 2.4.23
 BuildRequires:	pango-devel >= 1.8
 BuildRequires:	libgdl-devel >= 0.5
 BuildRequires:	libxslt-devel
-#gw anjuta 2.24.2 doesn't build with devhelp 0.22
-#BuildRequires:	devhelp-devel >= 0.9
+BuildRequires:	devhelp-devel >= 0.22
 BuildRequires:	vte-devel >= 0.9.0
 BuildRequires:	autogen-devel
 BuildRequires:	autogen
@@ -88,24 +88,23 @@ Anjuta 2 devel files
 
 %prep
 %setup -q -n %{pkgname}-%{version}
-%patch -p1
+%patch -p1 -b .format-strings
+%patch1 -p1 -b .fix-linking
+NOCONFIGURE=1 ./autogen.sh
 
 %build
-NOCONFIGURE=1 ./autogen.sh
 %configure2_5x \
     --disable-static \
     --enable-plugin-glade \
     --enable-plugin-valgrind \
     --enable-plugin-scintilla \
-    --enable-plugin-sourceview \
-    --disable-plugin-devhelp
+    --enable-plugin-sourceview
+
 %make
 
 %install
-rm -rf %{buildroot}
+rm -rf %{buildroot} *.lang
 %makeinstall_std
-cat global-tags/create_global_tags.sh | sed -e s/'PROGDIR=.'/'PROGDIR=\/usr\/bin'/ > %{buildroot}%{_datadir}/anjuta/scripts/create_global_tags.sh
-chmod 755 %{buildroot}%{_datadir}/anjuta/scripts/create_global_tags.sh
 
 desktop-file-install --vendor="" \
   --remove-key='Encoding' \
@@ -119,6 +118,8 @@ convert -geometry 32x32 pixmaps/anjuta_logo.png %{buildroot}%{_iconsdir}/%{pkgna
 convert -geometry 16x16 pixmaps/anjuta_logo.png %{buildroot}%{_miconsdir}/%{pkgname}.png
 
 %find_lang %{pkgname} --with-gnome
+%find_lang anjuta-build-tutorial --with-gnome
+cat anjuta-build-tutorial.lang >> anjuta.lang
 
 # remove unneeded and conflictive files
 rm -f %{buildroot}%{_libdir}/libanjuta*.la \
