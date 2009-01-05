@@ -14,7 +14,6 @@ URL:		http://anjuta.sourceforge.net/
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/anjuta/%{pkgname}-%{version}.tar.bz2
 Patch: anjuta-2.25.4-format-strings.patch
 Patch1: anjuta-2.25.4-fix-linking.patch
-BuildRequires:	libgladeui-devel >= 3.0.0
 BuildRequires:	gtk+2-devel >= 2.4.0
 BuildRequires:	libORBit2-devel >= 2.6
 BuildRequires:	libgnome2-devel >= 2.6
@@ -24,6 +23,7 @@ BuildRequires:	libgnomeprintui-devel >= 2.4.0
 BuildRequires:	gnome-vfs2-devel >= 2.6.0
 BuildRequires:	libxml2-devel >= 2.4.23
 BuildRequires:	pango-devel >= 1.8
+BuildRequires:	gda4.0-devel
 BuildRequires:	libgdl-devel >= 0.5
 BuildRequires:	libxslt-devel
 BuildRequires:	devhelp-devel >= 0.22
