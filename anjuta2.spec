@@ -4,10 +4,11 @@
 %define libname %mklibname %{pkgname} %major
 %define libnamedev %mklibname %{pkgname}  -d
 
+%define _requires_exceptions perl.GBF..Make.
 Summary:	Integrated development environment for C and C++ (Linux)
 Name:		%{pkgname}2
 Version:	2.25.4
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2+
 Group:		Development/Other
 URL:		http://anjuta.sourceforge.net/
