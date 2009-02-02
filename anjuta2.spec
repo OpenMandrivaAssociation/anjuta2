@@ -7,13 +7,13 @@
 %define _requires_exceptions perl.GBF..Make.
 Summary:	Integrated development environment for C and C++ (Linux)
 Name:		%{pkgname}2
-Version:	2.25.5
+Version:	2.25.90
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		Development/Other
 URL:		http://anjuta.sourceforge.net/
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/anjuta/%{pkgname}-%{version}.tar.bz2
-Patch: anjuta-2.25.5-format-strings.patch
+Patch: anjuta-2.25.90-format-strings.patch
 Patch1: anjuta-2.25.4-fix-linking.patch
 BuildRequires:	gtk+2-devel >= 2.4.0
 BuildRequires:	libORBit2-devel >= 2.6
@@ -45,7 +45,7 @@ BuildRequires:	gd-devel
 BuildRequires:	graphviz-devel >= 2.2.1
 BuildRequires:	scrollkeeper
 BuildRequires:  howl-devel
-BuildRequires:	glade3-devel
+#BuildRequires:	glade3-devel >= 3.5.7
 BuildRequires:	imagemagick
 Requires:	autogen
 Suggests:	libglademm-devel
@@ -95,7 +95,7 @@ NOCONFIGURE=1 ./autogen.sh
 %build
 %configure2_5x \
     --disable-static \
-    --enable-plugin-glade \
+    --disable-plugin-glade \
     --enable-plugin-valgrind \
     --enable-plugin-scintilla \
     --enable-plugin-sourceview
@@ -166,10 +166,10 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %{_sysconfdir}/gconf/schemas/*.schemas
 %{_bindir}/*
-%{_libdir}/glade3/modules/*
+#%{_libdir}/glade3/modules/*
 %{_libdir}/anjuta
 %{_datadir}/anjuta
-%{_datadir}/glade3/catalogs/*.xml
+#%{_datadir}/glade3/catalogs/*.xml
 %{_datadir}/applications/*.desktop
 %{_datadir}/gtk-doc/html/libanjuta*
 %{_datadir}/icons/gnome/*/mimetypes/*
