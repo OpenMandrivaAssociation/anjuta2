@@ -95,7 +95,6 @@ NOCONFIGURE=1 ./autogen.sh
 %build
 %configure2_5x \
     --disable-static \
-    --disable-plugin-glade \
     --enable-plugin-valgrind \
     --enable-plugin-scintilla \
     --enable-plugin-sourceview
