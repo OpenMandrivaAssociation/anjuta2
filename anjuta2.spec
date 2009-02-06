@@ -8,7 +8,7 @@
 Summary:	Integrated development environment for C and C++ (Linux)
 Name:		%{pkgname}2
 Version:	2.25.901
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2+
 Group:		Development/Other
 URL:		http://anjuta.sourceforge.net/
@@ -45,7 +45,7 @@ BuildRequires:	gd-devel
 BuildRequires:	graphviz-devel >= 2.2.1
 BuildRequires:	scrollkeeper
 BuildRequires:  howl-devel
-#BuildRequires:	glade3-devel >= 3.5.7
+BuildRequires:	glade3-devel >= 1:3.5.7
 BuildRequires:	imagemagick
 Requires:	autogen
 Suggests:	libglademm-devel
@@ -165,10 +165,10 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %{_sysconfdir}/gconf/schemas/*.schemas
 %{_bindir}/*
-#%{_libdir}/glade3/modules/*
+%{_libdir}/glade3/modules/*
 %{_libdir}/anjuta
 %{_datadir}/anjuta
-#%{_datadir}/glade3/catalogs/*.xml
+%{_datadir}/glade3/catalogs/*.xml
 %{_datadir}/applications/*.desktop
 %{_datadir}/gtk-doc/html/libanjuta*
 %{_datadir}/icons/gnome/*/mimetypes/*
