@@ -28,6 +28,7 @@ BuildRequires:	pango-devel >= 1.8
 BuildRequires:	gda4.0-devel
 BuildRequires:	libgdl-devel >= 0.5
 BuildRequires:	libxslt-devel
+BuildRequires:	unique-devel
 BuildRequires:	devhelp-devel >= 0.22
 BuildRequires:	vte-devel >= 0.9.0
 BuildRequires:	autogen-devel
