@@ -7,13 +7,13 @@
 %define _requires_exceptions perl.GBF..Make.
 Summary:	Integrated development environment for C and C++ (Linux)
 Name:		%{pkgname}2
-Version:	2.25.902
+Version:	2.25.903.0
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		Development/Other
 URL:		http://anjuta.sourceforge.net/
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/anjuta/%{pkgname}-%{version}.tar.bz2
-Patch: anjuta-2.25.902-format-strings.patch
+Patch: anjuta-2.25.903.0-format-strings.patch
 Patch1: anjuta-2.25.4-fix-linking.patch
 Patch2: anjuta-2.25.902-fix-debug-flags.patch
 BuildRequires:	gtk+2-devel >= 2.4.0
