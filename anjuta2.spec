@@ -7,8 +7,8 @@
 %define _requires_exceptions perl.GBF..Make.
 Summary:	Integrated development environment for C and C++ (Linux)
 Name:		%{pkgname}2
-Version:	2.25.903.0
-Release:	%mkrel 2
+Version:	2.26.0.0
+Release:	%mkrel 1
 License:	GPLv2+
 Group:		Development/Other
 URL:		http://anjuta.sourceforge.net/
@@ -26,7 +26,7 @@ BuildRequires:	gnome-vfs2-devel >= 2.6.0
 BuildRequires:	libxml2-devel >= 2.4.23
 BuildRequires:	pango-devel >= 1.8
 BuildRequires:	gda4.0-devel
-BuildRequires:	libgdl-devel >= 0.5
+BuildRequires:	libgdl-devel >= 2.26.0
 BuildRequires:	libxslt-devel
 BuildRequires:	unique-devel
 BuildRequires:	devhelp-devel >= 0.22
