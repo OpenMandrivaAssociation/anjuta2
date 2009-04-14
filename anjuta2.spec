@@ -7,7 +7,7 @@
 %define _requires_exceptions perl.GBF..Make.
 Summary:	Integrated development environment for C and C++ (Linux)
 Name:		%{pkgname}2
-Version:	2.26.0.1
+Version:	2.26.1.0
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		Development/Other
