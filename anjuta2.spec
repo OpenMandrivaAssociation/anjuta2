@@ -175,8 +175,8 @@ rm -rf %{buildroot}
 %{_datadir}/applications/*.desktop
 %{_datadir}/gtk-doc/html/libanjuta*
 %{_datadir}/icons/gnome/*/mimetypes/*
-%{_mandir}/man1/anjuta.1.*
-%{_mandir}/man1/anjuta_launcher.1.*
+%{_mandir}/man1/anjuta.1*
+%{_mandir}/man1/anjuta_launcher.1*
 %{_datadir}/mime/packages/anjuta.xml
 %{_datadir}/pixmaps/anjuta
 %{_datadir}/icons/hicolor/*/apps/*
