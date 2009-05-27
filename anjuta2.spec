@@ -7,7 +7,7 @@
 %define _requires_exceptions perl.GBF..Make.
 Summary:	Integrated development environment for C and C++ (Linux)
 Name:		%{pkgname}2
-Version:	2.27.1.0
+Version:	2.27.2.0
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		Development/Other
@@ -15,7 +15,7 @@ URL:		http://anjuta.sourceforge.net/
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/anjuta/%{pkgname}-%{version}.tar.bz2
 Patch: anjuta-2.27.1.0-format-strings.patch
 Patch1: anjuta-2.25.4-fix-linking.patch
-Patch2: anjuta-2.25.902-fix-debug-flags.patch
+Patch3: anjuta-2.27.2.0-dont-install-twice.patch
 BuildRequires:	gtk+2-devel >= 2.4.0
 BuildRequires:	libORBit2-devel >= 2.6
 BuildRequires:	libgnome2-devel >= 2.6
@@ -92,7 +92,7 @@ Anjuta 2 devel files
 %setup -q -n %{pkgname}-%{version}
 %patch -p1 -b .format-strings
 %patch1 -p1 -b .fix-linking
-%patch2 -p1
+%patch3 -p1
 NOCONFIGURE=1 ./autogen.sh
 
 %build
