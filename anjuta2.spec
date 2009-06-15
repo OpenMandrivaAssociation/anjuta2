@@ -25,7 +25,7 @@ BuildRequires:	gnome-vfs2-devel >= 2.6.0
 BuildRequires:	libxml2-devel >= 2.4.23
 BuildRequires:	pango-devel >= 1.8
 BuildRequires:	gda4.0-devel
-BuildRequires:	libgdl-devel >= 2.26.0
+BuildRequires:	libgdl-devel >= 2.27.3
 BuildRequires:	libxslt-devel
 BuildRequires:	unique-devel
 BuildRequires:	devhelp-devel >= 0.22
