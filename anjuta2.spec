@@ -7,21 +7,15 @@
 %define _requires_exceptions perl.GBF..Make.
 Summary:	Integrated development environment for C and C++ (Linux)
 Name:		%{pkgname}2
-Version:	2.27.3.0
+Version:	2.27.5.0
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		Development/Other
 URL:		http://anjuta.sourceforge.net/
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/anjuta/%{pkgname}-%{version}.tar.bz2
-Patch: anjuta-2.27.1.0-format-strings.patch
-Patch1: anjuta-2.25.4-fix-linking.patch
+Patch: anjuta-2.27.5.0-format-strings.patch
 BuildRequires:	gtk+2-devel >= 2.4.0
 BuildRequires:	libORBit2-devel >= 2.6
-BuildRequires:	libgnome2-devel >= 2.6
-BuildRequires:	libglade2.0-devel >= 2.3.0
-BuildRequires:	libgnomeui2-devel >= 2.6.0
-BuildRequires:	libgnomeprintui-devel >= 2.4.0
-BuildRequires:	gnome-vfs2-devel >= 2.6.0
 BuildRequires:	libxml2-devel >= 2.4.23
 BuildRequires:	pango-devel >= 1.8
 BuildRequires:	gda4.0-devel
@@ -90,8 +84,6 @@ Anjuta 2 devel files
 %prep
 %setup -q -n %{pkgname}-%{version}
 %patch -p1 -b .format-strings
-%patch1 -p1 -b .fix-linking
-NOCONFIGURE=1 ./autogen.sh
 
 %build
 %configure2_5x \
@@ -174,7 +166,7 @@ rm -rf %{buildroot}
 %{_datadir}/gtk-doc/html/libanjuta*
 %{_datadir}/icons/gnome/*/mimetypes/*
 %{_mandir}/man1/anjuta.1*
-%{_mandir}/man1/anjuta_launcher.1*
+%{_mandir}/man1/anjuta-launcher.1*
 %{_datadir}/mime/packages/anjuta.xml
 %{_datadir}/pixmaps/anjuta
 %{_datadir}/icons/hicolor/*/apps/*
