@@ -88,8 +88,6 @@ Anjuta 2 devel files
 %build
 %configure2_5x \
     --disable-static \
-    --enable-plugin-valgrind \
-    --enable-plugin-scintilla \
     --enable-plugin-sourceview
 
 %make
