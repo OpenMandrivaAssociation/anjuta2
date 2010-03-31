@@ -8,7 +8,7 @@
 Summary:	Integrated development environment for C and C++ (Linux)
 Name:		%{pkgname}2
 Version:	2.30.0.0
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2+
 Group:		Development/Other
 URL:		http://anjuta.sourceforge.net/
@@ -47,7 +47,7 @@ Suggests:	libglademm-devel
 Suggests:	glade3
 Provides:	anjuta = %{version}
 Obsoletes:	anjuta < 2
-Conflicts:	%libnamedev < 2.3.1-2
+Conflicts:	%libnamedev < %version
 BuildRoot:	%{_tmppath}/%{pkgname}-%{version}-buildroot
 
 %description
@@ -74,7 +74,7 @@ Anjuta 2 libraries
 Summary: Anjuta 2 devel files
 Group: Development/Other
 Requires: %libname = %version
-Provides: libanjuta-devel
+Provides: libanjuta-devel = %version-%release
 Conflicts: %name < 2.3.1-2
 Obsoletes: %mklibname -d %{pkgname} %{major}
 
@@ -125,7 +125,7 @@ rm -rf %{buildroot}/%{_docdir}
 %clean
 rm -rf %{buildroot}
 
-%define schemas anjuta-build-basic-autotools-plugin anjuta-cvs-plugin anjuta-document-manager anjuta-editor-scintilla anjuta-editor-sourceview anjuta-language-cpp-java anjuta-message-manager-plugin anjuta-symbol-browser-plugin anjuta-terminal-plugin anjuta-valgrind anjuta
+%define schemas anjuta-build-basic-autotools-plugin anjuta-cvs-plugin anjuta-document-manager anjuta-editor-sourceview anjuta-language-cpp-java anjuta-message-manager-plugin anjuta-terminal-plugin anjuta-debug-manager anjuta-symbol-db file-manager preferences
 
 %if %mdkversion < 200900
 %post
@@ -155,7 +155,17 @@ rm -rf %{buildroot}
 
 %files -f %{pkgname}.lang
 %defattr(-,root,root)
-%{_sysconfdir}/gconf/schemas/*.schemas
+%{_sysconfdir}/gconf/schemas/anjuta-build-basic-autotools-plugin.schemas
+%{_sysconfdir}/gconf/schemas/anjuta-cvs-plugin.schemas
+%{_sysconfdir}/gconf/schemas/anjuta-document-manager.schemas
+%{_sysconfdir}/gconf/schemas/anjuta-debug-manager.schemas
+%{_sysconfdir}/gconf/schemas/anjuta-editor-sourceview.schemas
+%{_sysconfdir}/gconf/schemas/anjuta-language-cpp-java.schemas
+%{_sysconfdir}/gconf/schemas/anjuta-message-manager-plugin.schemas
+%{_sysconfdir}/gconf/schemas/anjuta-symbol-db.schemas
+%{_sysconfdir}/gconf/schemas/anjuta-terminal-plugin.schemas
+%{_sysconfdir}/gconf/schemas/file-manager.schemas
+%{_sysconfdir}/gconf/schemas/preferences.schemas
 %{_bindir}/*
 %{_libdir}/glade3/modules/*
 %{_libdir}/anjuta
