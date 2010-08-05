@@ -7,13 +7,17 @@
 %define _requires_exceptions perl.GBF..Make.
 Summary:	Integrated development environment for C and C++ (Linux)
 Name:		%{pkgname}2
-Version:	2.30.2.1
+Version:	2.31.6.0
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		Development/Other
 URL:		http://anjuta.sourceforge.net/
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/anjuta/%{pkgname}-%{version}.tar.bz2
+Patch0: anjuta-2.31.6.0-format-strings.patch
 Patch1: anjuta-2.29.4.0-fix-linking.patch
+Patch2: anjuta-2.31.6.0-gir-version.patch
+# https://bugzilla.gnome.org/show_bug.cgi?id=625964
+Patch3: anjuta-new-vala.patch
 BuildRequires:	gtk+2-devel >= 2.4.0
 BuildRequires:	libORBit2-devel >= 2.6
 BuildRequires:	libxml2-devel >= 2.4.23
@@ -22,7 +26,7 @@ BuildRequires:	gda4.0-devel
 BuildRequires:	libgdl-devel >= 2.27.3
 BuildRequires:	libxslt-devel
 BuildRequires:	unique-devel
-BuildRequires:	devhelp-devel >= 0.22
+BuildRequires:	devhelp-devel >= 2.31.6
 BuildRequires:	vte-devel >= 0.9.0
 BuildRequires:	autogen-devel
 BuildRequires:	autogen
@@ -40,7 +44,9 @@ BuildRequires:	gd-devel
 BuildRequires:	graphviz-devel >= 2.22
 BuildRequires:	scrollkeeper
 BuildRequires:  howl-devel
-BuildRequires:	glade3-devel >= 1:3.6.0
+BuildRequires:	glade3-devel >= 1:3.7.1
+BuildRequires:	vala-devel >= 0.9.4
+BuildRequires:	gobject-introspection-devel
 BuildRequires:	imagemagick
 Requires:	autogen
 Suggests:	libglademm-devel
@@ -83,15 +89,15 @@ Anjuta 2 devel files
 
 %prep
 %setup -q -n %{pkgname}-%{version}
-%patch1 -p1
+%apply_patches
 autoreconf -fi
 
 %build
 %configure2_5x \
     --disable-static \
     --enable-plugin-sourceview
-
-%make
+#gw parallel make broken in 2.31.6.0
+make
 
 %install
 rm -rf %{buildroot} *.lang
@@ -190,9 +196,13 @@ rm -rf %{buildroot}
 %files -n %libname
 %defattr(-,root,root)
 %_libdir/*.so.%{major}*
+%_libdir/girepository-1.0/Anjuta-1.0.typelib
+%_libdir/girepository-1.0/IAnjuta-1.0.typelib
 
 %files -n %libnamedev
 %defattr(-,root,root)
 %_libdir/*.so
 %_includedir/libanjuta-1.0
 %_libdir/pkgconfig/*.pc
+%_datadir/gir-1.0/Anjuta-1.0.gir
+%_datadir/gir-1.0/IAnjuta-1.0.gir
