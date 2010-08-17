@@ -7,8 +7,8 @@
 %define _requires_exceptions perl.GBF..Make.
 Summary:	Integrated development environment for C and C++ (Linux)
 Name:		%{pkgname}2
-Version:	2.31.6.1
-Release:	%mkrel 2
+Version:	2.31.90.0
+Release:	%mkrel 1
 License:	GPLv2+
 Group:		Development/Other
 URL:		http://anjuta.sourceforge.net/
@@ -129,33 +129,10 @@ rm -rf %{buildroot}/%{_docdir}
 %clean
 rm -rf %{buildroot}
 
-%define schemas anjuta-build-basic-autotools-plugin anjuta-cvs-plugin anjuta-document-manager anjuta-editor-sourceview anjuta-language-cpp-java anjuta-message-manager-plugin anjuta-terminal-plugin anjuta-debug-manager anjuta-symbol-db file-manager preferences
-
-%if %mdkversion < 200900
-%post
-%update_menus
-%post_install_gconf_schemas %{schemas}
-%update_icon_cache hicolor
-%update_mime_database
-%endif
-
-%if %mdkversion < 200900
-%post -n %libname -p /sbin/ldconfig
-%endif
+%define schemas anjuta-build-basic-autotools-plugin anjuta-cvs-plugin anjuta-document-manager anjuta-editor-sourceview anjuta-language-cpp-java anjuta-message-manager-plugin anjuta-terminal-plugin anjuta-debug-manager anjuta-symbol-db file-manager preferences python-plugin-properties
 
 %preun
 %preun_uninstall_gconf_schemas %{schemas}
-
-%if %mdkversion < 200900
-%postun
-%clean_menus
-%clean_icon_cache hicolor
-%clean_mime_database
-%endif
-
-%if %mdkversion < 200900
-%postun -n %libname -p /sbin/ldconfig
-%endif
 
 %files -f %{pkgname}.lang
 %defattr(-,root,root)
@@ -170,6 +147,7 @@ rm -rf %{buildroot}
 %{_sysconfdir}/gconf/schemas/anjuta-terminal-plugin.schemas
 %{_sysconfdir}/gconf/schemas/file-manager.schemas
 %{_sysconfdir}/gconf/schemas/preferences.schemas
+%{_sysconfdir}/gconf/schemas/python-plugin-properties.schemas
 %{_bindir}/*
 %{_libdir}/glade3/modules/*
 %{_libdir}/anjuta
