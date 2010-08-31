@@ -7,7 +7,7 @@
 %define _requires_exceptions perl.GBF..Make.
 Summary:	Integrated development environment for C and C++ (Linux)
 Name:		%{pkgname}2
-Version:	2.31.90.0
+Version:	2.31.91.0
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		Development/Other
@@ -15,7 +15,6 @@ URL:		http://anjuta.sourceforge.net/
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/anjuta/%{pkgname}-%{version}.tar.bz2
 Patch0: anjuta-2.31.6.0-format-strings.patch
 Patch1: anjuta-2.29.4.0-fix-linking.patch
-Patch2: anjuta-2.31.6.0-gir-version.patch
 BuildRequires:	gtk+2-devel >= 2.4.0
 BuildRequires:	libORBit2-devel >= 2.6
 BuildRequires:	libxml2-devel >= 2.4.23
@@ -44,7 +43,9 @@ BuildRequires:	scrollkeeper
 BuildRequires:  howl-devel
 BuildRequires:	glade3-devel >= 1:3.7.1
 BuildRequires:	vala-devel >= 0.9.4
-BuildRequires:	gobject-introspection-devel
+#gw https://bugzilla.gnome.org/show_bug.cgi?id=628397
+#BuildRequires:	gobject-introspection-devel
+BuildRequires:	glib2-devel >= 2.25.15
 BuildRequires:	imagemagick
 Requires:	autogen
 Suggests:	libglademm-devel
@@ -93,9 +94,9 @@ autoreconf -fi
 %build
 %configure2_5x \
     --disable-static \
-    --enable-plugin-sourceview
-#gw parallel make broken in 2.31.6.0
-make
+    --enable-plugin-sourceview \
+    --enable-introspection=no
+%make
 
 %install
 rm -rf %{buildroot} *.lang
@@ -172,13 +173,13 @@ rm -rf %{buildroot}
 %files -n %libname
 %defattr(-,root,root)
 %_libdir/*.so.%{major}*
-%_libdir/girepository-1.0/Anjuta-1.0.typelib
-%_libdir/girepository-1.0/IAnjuta-1.0.typelib
+#%_libdir/girepository-1.0/Anjuta-1.0.typelib
+#%_libdir/girepository-1.0/IAnjuta-1.0.typelib
 
 %files -n %libnamedev
 %defattr(-,root,root)
 %_libdir/*.so
 %_includedir/libanjuta-1.0
 %_libdir/pkgconfig/*.pc
-%_datadir/gir-1.0/Anjuta-1.0.gir
-%_datadir/gir-1.0/IAnjuta-1.0.gir
+#%_datadir/gir-1.0/Anjuta-1.0.gir
+#%_datadir/gir-1.0/IAnjuta-1.0.gir
