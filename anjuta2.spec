@@ -44,6 +44,7 @@ BuildRequires:	scrollkeeper
 BuildRequires:  howl-devel
 BuildRequires:	glade3-devel >= 1:3.7.1
 BuildRequires:	vala-devel >= 0.9.4
+BuildRequires:	GConf2
 #gw https://bugzilla.gnome.org/show_bug.cgi?id=628397
 #BuildRequires:	gobject-introspection-devel
 BuildRequires:	glib2-devel >= 2.25.15
