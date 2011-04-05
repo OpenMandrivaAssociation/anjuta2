@@ -15,6 +15,7 @@ URL:		http://anjuta.sourceforge.net/
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/anjuta/%{pkgname}-%{version}.tar.bz2
 Patch0: anjuta-2.31.6.0-format-strings.patch
 Patch1: anjuta-2.29.4.0-fix-linking.patch
+Patch2: 04_vala_0_12.patch
 BuildRequires:	gtk+2-devel >= 2.4.0
 BuildRequires:	libORBit2-devel >= 2.6
 BuildRequires:	libxml2-devel >= 2.4.23
