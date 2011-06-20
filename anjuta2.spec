@@ -94,8 +94,9 @@ Anjuta 2 devel files
 autoreconf -fi
 
 %build
-%configure2_5x \
+%configure2_5x --disable-schemas-install \
     --disable-static \
+    --disable-vala \
     --enable-plugin-sourceview \
     --enable-introspection=no
 %make
