@@ -1,0 +1,13 @@
+diff -p -up anjuta-2.31.6.0/config.h.in~ anjuta-2.31.6.0/config.h.in
+diff -p -up anjuta-2.31.6.0/plugins/symbol-db/symbol-db-engine-core.c~ anjuta-2.31.6.0/plugins/symbol-db/symbol-db-engine-core.c
+--- anjuta-2.31.6.0/plugins/symbol-db/symbol-db-engine-core.c~	2010-08-01 15:35:24.000000000 +0200
++++ anjuta-2.31.6.0/plugins/symbol-db/symbol-db-engine-core.c	2010-08-03 19:22:17.000000000 +0200
+@@ -423,7 +423,7 @@ sdb_engine_get_statement_by_query_id (Sy
+ 
+ 		if (error)
+ 		{
+-			g_warning (error->message);
++			g_warning ("%s", error->message);
+ 			g_error_free (error);
+ 			return NULL;
+ 		}

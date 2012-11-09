@@ -1,0 +1,24 @@
+diff -p -up anjuta-2.29.4.0/plugins/js-debugger/Makefile.am~ anjuta-2.29.4.0/plugins/js-debugger/Makefile.am
+--- anjuta-2.29.4.0/plugins/js-debugger/Makefile.am~	2009-12-21 17:25:22.000000000 +0100
++++ anjuta-2.29.4.0/plugins/js-debugger/Makefile.am	2009-12-22 20:59:40.000000000 +0100
+@@ -40,7 +40,7 @@ libjs_debugger_la_SOURCES = debugger-js.
+ 
+ # Plugin dependencies
+ libjs_debugger_la_LIBADD = \
+-	$(LIBANJUTA_LIBS) 
++	$(LIBANJUTA_LIBS) $(GTK_LIBS)
+ 
+ EXTRA_DIST = \
+ 	$(plugin_in_files) \
+diff -p -up anjuta-2.29.4.0/plugins/language-support-js/Makefile.am~ anjuta-2.29.4.0/plugins/language-support-js/Makefile.am
+--- anjuta-2.29.4.0/plugins/language-support-js/Makefile.am~	2009-12-22 19:55:05.000000000 +0100
++++ anjuta-2.29.4.0/plugins/language-support-js/Makefile.am	2009-12-22 21:09:03.000000000 +0100
+@@ -54,7 +54,7 @@ y.tab.c y.tab.h lex.yy.c lex.yy.h js-nod
+ 
+ # Plugin dependencies
+ libjs_support_plugin_la_LIBADD = \
+-	$(LIBANJUTA_LIBS) 
++	$(LIBANJUTA_LIBS) $(GTK_LIBS) $(LIBXML_LIBS)
+ 
+ EXTRA_DIST = \
+ 	$(plugin_in_files)\
