@@ -90,7 +90,7 @@ Anjuta 2 devel files
 
 %prep
 %setup -q -n %{pkgname}-%{version}
-%apply_patches
+%autopatch -p1
 autoreconf -fi
 
 %build
