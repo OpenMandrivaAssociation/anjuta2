@@ -11,7 +11,7 @@ Version:	2.32.1.1
 Release:	%mkrel 4
 License:	GPLv2+
 Group:		Development/Other
-URL:		http://anjuta.sourceforge.net/
+URL:		https://anjuta.sourceforge.net/
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/anjuta/%{pkgname}-%{version}.tar.bz2
 Patch0: anjuta-2.31.6.0-format-strings.patch
 Patch1: anjuta-2.29.4.0-fix-linking.patch
